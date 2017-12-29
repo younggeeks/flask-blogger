@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geeks Web Post</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/semantic.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/milligram.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}">
+
+
+<link href="{{ url_for('static',filename='css/froala_editor.pkgd.min.css') }}" rel='stylesheet' type='text/css' />
+
+<link href="{{ url_for('static',filename='css/froala_style.min.css') }}" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+</head>
+<body>
+
+
+<script>
+
+</script>
+
+<div class="ui inverted segment navigationbar">
+    <div class="ui inverted secondary pointing menu">
+        <a href="{{url_for('index')}}" class="item ">
+            Home
+        </a>
+        <a href="" class="item">
+            About
+        </a>
+        <a class="item ">
+            FAQ
+        </a>
+    </div>
+</div>
+<div class="container" style="margin-top:50px; ">
+    <div class="ui grid">
+        <div class="two wide column">
+            <div class="ui vertical labeled icon menu menu-left">
+                <a class="item" href="{{url_for('index')}}">
+                    <i class="browser icon"></i>
+                    Posts
+                </a>
+                <a class="item">
+                    <i class="code icon"></i>
+                    Projects
+                </a>
+                <a class="item">
+                    <i class="user icon"></i>
+                    Profile
+                </a>
+                <a class="item">
+                    <i class="send outline icon"></i>
+                    Contact
+                </a>
+            </div>
+        </div>
+        <div class="fourteen wide column">
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    $(".post").addClass("loading")
+    $(document).ready(function () {
+        $(".post").removeClass("loading")
+        $('#category').dropdown();
+        var post_div = $('.post_body')
+        post_div.text(post_div.text().substring(0, 150) + ' ...')
+
+        $('#editor').froalaEditor({toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'emoticons', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'help', 'html', '|', 'undo', 'redo'],})
+    })
+</script>
+<script src="{{ url_for('static', filename='js/semantic.min.js') }}"></script>
+<!-- Include JS file. -->
+<script type='text/javascript' src="{{ url_for('static',filename='js/froala_editor.pkgd.min.js')}}"></script>
+
+</body>
+</html>

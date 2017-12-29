@@ -1,0 +1,33 @@
+{% extends "master.html" %}
+
+{% block content %}
+<h3>Edit  Article</h3>
+<form class="ui form" action="{{url_for('edit', post_id=post.id)}}" method="POST">
+    <form class="ui form">
+  <div class="field">
+    <label>Post Title</label>
+    <input type="text" value="{{post.title}}" name="title" placeholder="New Awesome Article">
+  </div>
+  <div class="field">
+    <label>Post Content</label>
+    <textarea id="editor"  name="body">{{post.body}}</textarea>
+  </div>
+  <div class="field">
+      <label>Gender</label>
+      <div class="ui selection dropdown" id="category">
+          <input type="hidden" name="category" value="{{post.category}}">
+          <i class="dropdown icon"></i>
+          <div class="default text">Select Article Category</div>
+          <div class="menu">
+              <div class="item" data-value="technology">Technology</div>
+              <div class="item" data-value="social">Social</div>
+              <div class="item" data-value="economy">Economy</div>
+              <div class="item" data-value="entertainment">Entertainment</div>
+          </div>
+      </div>
+  </div>
+  <button class="ui button" type="submit">Submit</button>
+</form>
+</form>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+
+
+{% block content  %}
+<div class="ui  card" style="width: 100%">
+  <div class="content">
+    <a href="{{url_for('edit', post_id=post.id) }}" ><i class="right floated edit icon"></i></a>
+    <div class="header dividor">{{post.title}}</div>
+    <div class="description">
+      <p>{{post.body | safe}}</p>
+    </div>
+  </div>
+  <div class="extra content">
+    <span class="right floated star">
+        <a href="#"><i class="thumbs outline up icon"></i></a>
+      Like
+    </span>
+  </div>
+</div>
+{% endblock %}
