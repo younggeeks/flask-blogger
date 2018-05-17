@@ -1,0 +1,67 @@
+{% extends "master.html" %}
+
+{% block content %}
+<h3>Creating New Article</h3>
+<form class="ui form" action="{{url_for('projects')}}" method="post" enctype="multipart/form-data">
+    <form class="ui form">
+        <div class="field">
+            <label>Project Name</label>
+            <input type="text" name="title" placeholder="Google Translate api v2" required>
+        </div>
+        <div class="field">
+            <label>When Did It Start?</label>
+            <input type="date" name="start" >
+        </div>
+        <div class="field">
+            <label>Project Description</label>
+            <textarea name="description"></textarea>
+        </div>
+
+        <div class="field">
+            <label>Project Owner</label>
+            <input type="text" name="owner" placeholder="Google Inc">
+        </div>
+        <div class="field">
+            <label >Technologies Used</label>
+            <select id="technologies_dropdown" name="technologies" multiple="" class="ui fluid multiple search selection dropdown">
+            <option value="">Technologies</option>
+            <option value="angular"></i>Angular</option>
+            <option value="css"></i>CSS</option>
+            <option value="html5">HTML5</option>
+            <option value="ember">Ember</option>
+            <option value="javascript">Javascript</option>
+            <option value="meteor">Meteor</option>
+            <option value="node">NodeJS</option>
+            <option value="python">Python</option>
+            <option value="rails">Rails</option>
+            <option value="react">React</option>
+            <option value="ruby">Ruby</option>
+            <option value="wordpress">Wordpress</option>
+            <option value="joomla">Joomla</option>
+        </select>
+        </div>
+         <div class="field">
+            <label>Project Status</label>
+            <input type="text" name="status" placeholder="Ongoing, Completed">
+        </div>
+         <div class="field">
+            <label>Your Role</label>
+            <input type="text" name="role" placeholder="Lead Developer, Intern , UI Designer">
+        </div>
+         <div class="field">
+            <label>Project URL</label>
+            <input type="text" name="url" placeholder="http://kiu.ac.tz">
+        </div>
+
+        <div class="field">
+            <label>Upload Cover Image</label>
+            <input type="file" name="image">
+        </div>
+        <button class="ui button" type="submit">Submit</button>
+    </form>
+</form>
+
+<script>
+
+</script>
+{% endblock %}

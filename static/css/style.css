@@ -1,8 +1,14 @@
 .navigationbar {
     height: 120px;
-    background: #159486 !important;
+    /*background: #159486 !important;*/
+    background: #00BCD4 !important;
 }
 
 .menu-left {
-    background: #159486 !important;
+    background: #00BCD4 !important;
+    color:white !important;
+}
+
+.ui.icon.menu .item{
+    color:white !important;
 }

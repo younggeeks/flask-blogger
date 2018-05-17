@@ -1,28 +1,35 @@
 {% extends "master.html" %}
 
 
+{% block pagename %} Articles {% endblock %}
+
 {% block content  %}
-<div>
-    <div class="ui two cards middle aligned divided list">
 
-        {% for post in posts %}
-        <div class="ui card">
-  <div class="content">
-    <div class="header"><a href="{{url_for('show', post_id=post.id)}}">{{post.title}}</a></div>
+{% if posts|length > 0 %}
+{% for post in posts %}
+<div class="ui raised segment grid">
+    <div class="six wide column">
+        <img class="raised segment" src="https://firebasestorage.googleapis.com/v0/b/pysonic-2018.appspot.com/o/{{post.id}}?alt=media&token=a099753f-ad90-47e4-9283-72526b79ffb9" alt="" style="padding:0">
+    </div>
 
-    <div class="meta">{{post.published_at}}</div>
-    <div class="description post_body">
-        <p >{{post.body  | limit }}</p>    </div>
-  </div>
-  <div class="extra content">
-    <i class="check icon"></i>
-    121 Votes
-  </div>
-</div>
-        {% endfor %}
-
-
+    <div class="ten wide column">
+        <span><a href="#">{{post.category}}</a></span>
+        <h5><a href="{{url_for('show', post_id=post.id)}}">{{post.title}}</a></h5>
+        <p>
+            {{post.body | limit}}
+        </p>
     </div>
 </div>
+{% endfor %}
+{% else %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Nothing To See here
+  </div>
+  It seems Nothing has been posted here , You can start by clicking <a href="/create">Here</a>
+</div>
+{% endif %}
+
 
 {% endblock %}

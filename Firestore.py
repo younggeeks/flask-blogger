@@ -34,8 +34,8 @@ class Firestore:
         return kweri.get()
 
     @staticmethod
-    def save(collection, data, post_id=None):
-        if post_id:
-            return db.collection(collection).document(post_id).update(data)
+    def save(collection, data, id=None):
+        if id:
+            return db.collection(collection).document(id).update(data)
         else:
             return db.collection(collection).document(data.get("id")).set(data)

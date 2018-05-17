@@ -1,0 +1,49 @@
+{% extends "master.html" %}
+
+
+{% block pagename %} Projects {% endblock %}
+
+{% block content  %}
+
+{% if projects|length > 0 %}
+
+<div class="ui link cards">
+    {% for project in projects %}
+  <div class="card">
+    <div class="image">
+      <img src="https://firebasestorage.googleapis.com/v0/b/pysonic-2018.appspot.com/o/{{project.id}}?alt=media&token=a099753f-ad90-47e4-9283-72526b79ffb9">
+    </div>
+    <div class="content">
+      <div class="header">{{project.title}}</div>
+      <div class="meta">
+        <a>{{project.url}}</a>
+      </div>
+      <div class="description">
+        <i class="copyright icon"></i>{{project.owner}}
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        {{project.role}}
+      </span>
+      <span>
+        <i class="info icon"></i>{{project.status}}
+      </span>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+
+{% else %}
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">
+    Nothing To See here
+  </div>
+  It seems Nothing has been posted here , You can start by clicking <a href="/create">Here</a>
+</div>
+{% endif %}
+
+
+{% endblock %}
